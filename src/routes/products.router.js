@@ -8,15 +8,13 @@ const products = [
     {id:3, name:'producto 3', price:600},
 ]
 
-router.get("/", (req, res) => {
-    res.send("Bienvenido al servidor de productos y carritos");
-});
+//router.get
 
-router.get('/api/products', (req, res)=>{
+router.get('/', (req, res)=>{
     res.json(products)
 });
 
-router.get('/api/products/:pid', (req, res)=>{
+router.get('/:pid', (req, res)=>{
     const productsId = parseInt(req.params.pid);
     const product = products.find(p => p.id === productsId)
 
@@ -26,5 +24,12 @@ router.get('/api/products/:pid', (req, res)=>{
 });
 
 // router.post
+
+router.post('/', (req, res)=>{
+    const newProduct = req.body;
+    products.push(newProduct);
+    res.json({message:'Successful new products created'})
+});
+
 
 export default router;
