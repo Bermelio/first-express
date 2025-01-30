@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended:true}));
 
 app.listen(8080, ()=> {console.log('Listening on port 8080')});
 
-
+app.use(express.static('./src/public'))
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 

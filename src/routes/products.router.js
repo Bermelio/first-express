@@ -3,9 +3,17 @@ import { Router } from 'express';
 const router = Router();
 
 const products = [
-    {id:1, name:'producto 1', price:200},
-    {id:2, name:'producto 2', price:400},
-    {id:3, name:'producto 3', price:600},
+    {
+    id:1,
+    tittle:'Grabadora',
+    description:'muy viejo',
+    code:'hvyrnweycn',
+    price:1700,
+    status: Boolean,
+    stock: 4,
+    category:'music',
+    thumbnails:''
+    }
 ]
 
 //router.get
@@ -25,7 +33,7 @@ router.get('/:pid', (req, res)=>{
 
 // router.post
 
-router.post('/', (req, res)=>{
+router.post('/create', (req, res)=>{
     const newProduct = req.body;
     products.push(newProduct);
     res.json({message:'Successful new products created'})
